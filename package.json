@@ -1,21 +1,26 @@
 {
-	"name": "tweether"
-	,"description": ""
-	,"keywords": []
-	,"version": "0.0.0"
-	,"author": "fluffybunnies"
-	,"license": "MIT"
-	,"repository": {
-		"type": "git"
-		,"url": "git@github.com:fluffybunnies/tweether.git"
-	}
-	,"dependencies": {
+	"name": "tweether",
+	"description": "",
+	"keywords": [],
+	"version": "0.0.0",
+	"author": "fluffybunnies",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "git@github.com:fluffybunnies/tweether.git"
+	},
+	"bugs": {
+		"url": "https://github.com/fluffybunnies/tweether/issues"
+	},
+	"scripts": {
+		"test": "node ./test/test.js"
+	},
+	"bin": {},
+	"main": "index.js",
+	"dependencies": {
 		"sext": "0.1.6"
-	}
-	,"devDependencies": {
-	}
-	,"scripts": {
-	}
-	,"bin": {
+	},
+	"devDependencies": {
+		"tape": "*"
 	}
 }
