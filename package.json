@@ -18,7 +18,10 @@
 	"bin": {},
 	"main": "index.js",
 	"dependencies": {
-		"sext": "0.1.6"
+		"hyperquest": "1.0.1",
+		"minimist": "1.1.1",
+		"sext": "0.1.6",
+		"through2": "0.6.3"
 	},
 	"devDependencies": {
 		"tape": "*"

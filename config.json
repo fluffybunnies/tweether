@@ -1,4 +1,6 @@
 {
-	"appKey": "",
-	"appToken": ""
+	"twitterAccessToken": "",
+	"twitterAccessTokenSecret": "",
+	"twitterConsumerKey": "",
+	"twitterConsumerSecret": ""
 }
