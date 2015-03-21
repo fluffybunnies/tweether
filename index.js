@@ -1,12 +1,2 @@
 
-//module.exports = require('./lib/apistream')
-
-
-
-
-var apistream = require('./lib/apistream')
-;
-
-
-
-
+console.log('sup')
