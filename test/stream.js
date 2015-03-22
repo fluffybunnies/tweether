@@ -1,7 +1,6 @@
 
 var request = require('request')
 ,ut = require('../lib/ut')
-,config = require('../config.js')
 ;
 
 var urlPrefix = 'https://stream.twitter.com/1.1/'
