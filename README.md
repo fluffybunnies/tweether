@@ -11,5 +11,5 @@ vim config.local.json
 # add twitter creds
 
 # run
-node ./test/oauth1.js
+node ./test/apistream.js
 ```
