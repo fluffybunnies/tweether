@@ -11,7 +11,7 @@ var apistream = require('../lib/apistream')
 
 apistream('https://stream.twitter.com/1.1/statuses/filter.json',{
 	data: {
-		locations: '23.830106,-170.534369,70.416383,-52.497261' // us/ca
+		locations: '-170.534369,23.830106,-52.497261,70.416383' // us/ca
 		//locations: '-122.75,36.8,-121.75,37.8' // sf
 		//follow: 'jewelmint'
 		//track: 'pizza'
