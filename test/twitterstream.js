@@ -1,15 +1,15 @@
 /*
-node ./test/apistream.js
+node ./test/twitterstream.js
 
 todo test
 	- various errors, should reconnect
 */
 
-var apistream = require('../lib/apistream')
+var twitterstream = require('../lib/twitterstream')
 ;
 
 
-apistream('https://stream.twitter.com/1.1/statuses/filter.json',{
+twitterstream('https://stream.twitter.com/1.1/statuses/filter.json',{
 	data: {
 		locations: '-170.534369,23.830106,-52.497261,70.416383' // us/ca
 		//locations: '-122.75,36.8,-121.75,37.8' // sf
@@ -24,12 +24,13 @@ apistream('https://stream.twitter.com/1.1/statuses/filter.json',{
 	console.log('error',err);
 })
 .on('data',function(data){
-	console.log('data',data.toString());
+	console.log('twitterstream test data');
+	console.log(JSON.stringify(data)+'\n\n');
 })
 ;
 
 /*
-apistream('https://stream.twitter.com/1.1/statuses/sample.json',{
+twitterstream('https://stream.twitter.com/1.1/statuses/sample.json',{
 	data: {}
 })
 .on('softerror',function(err){

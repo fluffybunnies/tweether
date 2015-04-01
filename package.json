@@ -19,9 +19,12 @@
 	"main": "index.js",
 	"dependencies": {
 		"hyperquest": "1.0.1",
+    "level": "0.18.0",
+    "level-sublevel": "6.4.6",
 		"minimist": "1.1.1",
+		"request": "2.54.0",
 		"sext": "0.1.6",
-		"through2": "0.6.3"
+		"through": "2.3.6"
 	},
 	"devDependencies": {
 		"tape": "*"

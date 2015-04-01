@@ -1,6 +1,23 @@
 {
-	"twitterAccessToken": "",
-	"twitterAccessTokenSecret": "",
-	"twitterConsumerKey": "",
-	"twitterConsumerSecret": ""
+	"twitter": {
+		"accessToken": "",
+		"accessSecret": "",
+		"consumerKey": "",
+		"consumerSecret": ""
+	},
+	"api": {
+		"app": "",
+		"secret": "",
+		"endpoint": "",
+		"version": ""
+	},
+	"leveldb": {
+		"engines": "./db/engines"
+	},
+	"sourceSql": {
+		"host": "",
+		"user": "",
+		"pass": "",
+		"db": ""
+	}
 }

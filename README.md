@@ -11,5 +11,5 @@ vim config.local.json
 # add twitter creds
 
 # run
-node ./test/apistream.js
+node ./test/twitterstream.js
 ```
