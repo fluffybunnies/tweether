@@ -16,6 +16,8 @@ var config = require('../config.js')
 ,lev = require('fast-levenshtein')
 */
 
+var google = require('google');
+
 
 var s = twitterstream('https://stream.twitter.com/1.1/statuses/filter.json',{
 	data: {
@@ -32,22 +34,27 @@ var s = twitterstream('https://stream.twitter.com/1.1/statuses/filter.json',{
 	console.log('error',err);
 })
 .on('data',function(data){
-	console.log('twitterstream test data');
+	//console.log('twitterstream test data');
 	//console.log(JSON.stringify(data)+'\n\n');
 
 	var tweet = data
 	,importantWords = []
 	tweet.text.split(' ').forEach(function(word){
-		if (word && word.charAt(0) == word.charAt(0).toUpperCase())
+		if (word && word.charAt(0) == word.charAt(0).toUpperCase() && /[a-zA-Z]/.test(word.charAt(0)))
 			importantWords.push(word);
 	});
 	if (importantWords.length > 3) {
 		var search = 'site:www.luckyshops.com '+importantWords.join(' ');
-		require('google')(search,function(err,next,links){
-			if (!err && links.length) {
-				s.destroy();
-				console.log(tweet.text+'\n\n'+search+'\n\n'+JSON.stringify(links)+'\n\n');
-			}
+		google(search,function(err,next,links){
+			if (err)
+				return console.log('ERROR',err);
+			if (!links[0])
+				return;
+			//s.destroy();
+			//console.log(tweet.text+'\n\n'+search+'\n\n'+JSON.stringify(links[0])+'\n\n');
+			console.log(tweet.user.screen_name+': '+tweet.text);
+			console.log('LuckyMagazine: @'+tweet.user.screen_name+' Check this out! <a href="'+links[0].link+'">'+links[0].title+'</a>');
+			console.log('\n\n');
 		});
 	}
 

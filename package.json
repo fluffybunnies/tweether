@@ -18,6 +18,7 @@
 	"bin": {},
 	"main": "index.js",
 	"dependencies": {
+		"google": "*",
 		"hyperquest": "1.0.1",
     "level": "0.18.0",
     "level-sublevel": "6.4.6",
