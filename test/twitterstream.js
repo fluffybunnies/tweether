@@ -6,17 +6,23 @@ todo test
 */
 
 var twitterstream = require('../lib/twitterstream')
+,config = require('../config.js')
 ;
 
 /*
-var config = require('../config.js')
-,level = require('level')(__dirname+'/../'+config.leveldb.engines)
+var level = require('level')(__dirname+'/../'+config.leveldb.engines)
 ,subLevel = require('level-sublevel')(level)
 ,articlesDb = subLevel.sublevel('articles')
 ,lev = require('fast-levenshtein')
 */
 
-var google = require('google');
+//var google = require('google');
+
+var GoogleSearch = require('google-search')
+,googleSearch = new GoogleSearch({
+	key: config.google.key
+	,cx: config.google.cx
+});
 
 
 var s = twitterstream('https://stream.twitter.com/1.1/statuses/filter.json',{
@@ -34,8 +40,12 @@ var s = twitterstream('https://stream.twitter.com/1.1/statuses/filter.json',{
 	console.log('error',err);
 })
 .on('data',function(data){
-	//console.log('twitterstream test data');
+	if (data.entities.hashtags && data.entities.hashtags.length)
+		console.log('wefwefewf\n',data.entities.hashtags);
+	//console.log(JSON.stringify(data)+'\n');
+	//console.log('twitterstream test data',data);
 	//console.log(JSON.stringify(data)+'\n\n');
+	return;
 
 	var tweet = data
 	,importantWords = []
@@ -44,6 +54,20 @@ var s = twitterstream('https://stream.twitter.com/1.1/statuses/filter.json',{
 			importantWords.push(word);
 	});
 	if (importantWords.length > 3) {
+		var search = importantWords.join(' ');
+		googleSearch.build({
+			q: search,
+			start: 0,
+			//fileType: 'pdf',
+			//gl: 'tr', //geolocation, 
+			//lr: 'lang_tr',
+			num: 1,
+			siteSearch: 'http://www.luckyshops.com'
+		},function(err,data) {
+			//console.log(err,data);
+			//console.log('\nwefwefwe');
+		});
+		/*
 		var search = 'site:www.luckyshops.com '+importantWords.join(' ');
 		google(search,function(err,next,links){
 			if (err)
@@ -56,6 +80,7 @@ var s = twitterstream('https://stream.twitter.com/1.1/statuses/filter.json',{
 			console.log('LuckyMagazine: @'+tweet.user.screen_name+' Check this out! <a href="'+links[0].link+'">'+links[0].title+'</a>');
 			console.log('\n\n');
 		});
+		*/
 	}
 
 	/*
