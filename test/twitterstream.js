@@ -40,6 +40,7 @@ var s = twitterstream('https://stream.twitter.com/1.1/statuses/filter.json',{
 	console.log('error',err);
 })
 .on('data',function(data){
+	console.log(data);
 	if (data.entities.hashtags && data.entities.hashtags.length)
 		console.log('wefwefewf\n',data.entities.hashtags);
 	//console.log(JSON.stringify(data)+'\n');
