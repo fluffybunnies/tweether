@@ -27,7 +27,8 @@ var GoogleSearch = require('google-search')
 
 var s = twitterstream('https://stream.twitter.com/1.1/statuses/filter.json',{
 	data: {
-		locations: '-170.534369,23.830106,-52.497261,70.416383' // us/ca
+		//locations: '-170.534369,23.830106,-52.497261,70.416383' // us/ca
+		track: '#KristenStewart'
 		//locations: '-122.75,36.8,-121.75,37.8' // sf
 		//follow: 'jewelmint'
 		//track: 'pizza'
@@ -40,13 +41,11 @@ var s = twitterstream('https://stream.twitter.com/1.1/statuses/filter.json',{
 	console.log('error',err);
 })
 .on('data',function(data){
-	console.log(data);
 	if (data.entities.hashtags && data.entities.hashtags.length)
-		console.log('wefwefewf\n',data.entities.hashtags);
-	//console.log(JSON.stringify(data)+'\n');
+		console.log('HASHTAGS\n',data.entities.hashtags);
+	console.log(JSON.stringify(data)+'\n');
 	//console.log('twitterstream test data',data);
-	//console.log(JSON.stringify(data)+'\n\n');
-	return;
+
 
 	var tweet = data
 	,importantWords = []
