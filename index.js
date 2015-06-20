@@ -91,6 +91,7 @@ var ins = apipoller('articles',{
 
 function getTwitterTrackParamFromArticle(article){
 	// The track, follow, and locations fields should be considered to be combined with an OR operator. track=foo&follow=1234 returns Tweets matching “foo” OR created by user 1234.
+	// return article.meta.tweether.track
 	return {
 		track: 'kim kardashian,KimKardashian'
 		//,locations: '-170.534369,23.830106,-52.497261,70.416383' // us/ca
