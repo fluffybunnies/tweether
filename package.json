@@ -1,6 +1,6 @@
 {
 	"name": "tweether",
-	"description": "",
+	"description": "Monitor all tweets and automatically respond to relevant posts.",
 	"keywords": [],
 	"version": "0.0.0",
 	"author": "fluffybunnies",
