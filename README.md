@@ -1,5 +1,8 @@
 # tweether
 
+*in production*
+Monitor all tweets and automatically respond to relevant posts.
+
 
 ```
 git clone git@github.com:fluffybunnies/tweether.git
